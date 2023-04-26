@@ -55,12 +55,7 @@ export async function getFilteredCommits(
 ) {
   return commits.filter((commit) => {
     return filters.some((filter) => {
-      let re = new RegExp(
-        '^(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test)\\(' +
-          filter +
-          '\\)\\: [\\w ]+',
-        'g'
-      );
+      let re = new RegExp('(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test)\\(' + filter + '\\)\\: [\\w ]+','g');
       return commit.message.match(re);
     });
   });
